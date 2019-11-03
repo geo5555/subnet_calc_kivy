@@ -1,0 +1,134 @@
+<Controller>:
+
+    text_input_subnet: text_input_subnet_with_prefix
+    text_input_subnet_no_prefix: text_input_subnet_no_prefix
+    text_input_network: text_input_network
+    text_input_mask: text_input_mask
+    text_input_subnet_mask: text_input_subnet_mask
+    text_input_first_host: text_input_first_host
+    text_input_last_host: text_input_last_host
+    text_input_broadcast: text_input_broadcast
+    text_input_num_addresses: text_input_num_addresses
+    rows:3
+    cols:1
+
+    BoxLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        # Label:
+        #     #size: self.texture_size
+        #     #text_size: self.size
+        #     halign: 'right'
+        #     valign: 'top'
+        #     id: my_custom_label
+        #     text: 'Subnet with Prefix'
+        #     color: 0,0,0,1
+        #     font_family: 'Arial'
+        #     font_name: 'Arial'
+        #     font_size: 20
+        #     size_hint:(1, None)
+        #     height: root.height/12
+        #     #outline_color: 1,0,0,1
+        #     #outline_width: 1
+        #     canvas.before:
+        #         Color:
+        #             rgba: 1, 1, 1, 1
+        #         Rectangle:
+        #             pos: self.pos
+        #             size: self.size
+        #         # Line:
+        #         #     width: 2
+        #         #     rectangle: self.x, self.y, self.width, self.height
+
+        TextInput:
+            text: 'Subnet with Prefix'
+            size_hint:(1, None)
+            readonly: True 
+            #height: root.height/12
+            #background_color: 1,2,0,1
+
+        TextInput:
+            id: text_input_subnet_with_prefix
+            text: '192.168.1.0/24'
+            size_hint:(1, None)
+            #height: root.height/12
+            #background_color: 1,2,0,1
+
+        Button:
+            text: 'calculate'
+            on_press: root.calculate()
+            size_hint:(1, None)
+            #height: root.height/12
+
+    BoxLayout:
+        size_hint_y: None
+        height: self.minimum_height
+        # Label:
+        #     id: my_custom_label
+        #     text: 'Subnet without Prefix'
+        #     size_hint:(1, None)
+        #     #height: root.height/12
+        #     color:0,0,0,1
+        #     font_family: 'Arial'
+        #     font_name: 'Arial'
+        #     font_size: 20
+        #     canvas.before:
+        #         Color:
+        #             rgba: 1, 1, 1, 1
+        #         Rectangle:
+        #             pos: self.pos
+        #             size: self.size
+
+        TextInput:
+            text: 'Subnet without Prefix'
+            size_hint:(1, None)
+            readonly: True 
+            #height: root.height/12
+            #background_color: 1,2,0,1
+
+        TextInput:
+            id: text_input_subnet_no_prefix
+            size_hint:(1, None)
+            #height: root.height/12
+            text: '192.168.1.0'
+
+        TextInput:
+            id: text_input_subnet_mask
+            size_hint:(1, None)
+            #height: root.height/12
+            text: '255.255.255.0'
+
+    BoxLayout:
+        orientation: 'vertical'
+        TextInput:
+            id: text_input_network
+            text: 'network: '
+        TextInput:
+            id: text_input_mask
+            text: 'mask:'
+        TextInput:
+            id: text_input_first_host
+            text: 'first host:'
+        TextInput:
+            id: text_input_last_host
+            text: 'last host:'
+        TextInput:
+            id: text_input_broadcast
+            text: 'broadcast address:'
+        TextInput:
+            id: text_input_num_addresses
+            text: 'number of addresses:'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
