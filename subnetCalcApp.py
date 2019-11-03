@@ -4,18 +4,26 @@ kivy.require('1.0.5')
 from kivy.uix.gridlayout import GridLayout
 from kivy.app import App
 from kivy.properties import ObjectProperty, StringProperty
-from kivy.uix.dropdown import DropDown
 from ipaddress import ip_network, ip_address
 
 
 class Controller(GridLayout):
 
+    def change_subnet(self):
+        print("change called")
+        self.subnet = self.text_input_subnet_no_prefix.text+"/"+self.text_input_subnet_mask.text
+        print(self.subnet)
+        self.calculate()
+
+    def change_subnet2(self):
+        self.subnet = self.text_input_subnet.text.strip()
+        if not self.subnet:
+            self.subnet = self.text_input_subnet_no_prefix.text+"/"+self.text_input_subnet_mask.text
+        self.calculate()
+    
     def calculate(self):
-        subnet = self.text_input_subnet.text.strip()
-        if not subnet:
-            subnet = self.text_input_subnet_no_prefix.text+"/"+self.text_input_subnet_mask.text
         try:
-            subnet = ip_network(subnet)
+            subnet = ip_network(self.subnet)
             network_part = str(subnet.network_address)
             netmask = str(subnet.netmask)
             ip_list = list(subnet.hosts())

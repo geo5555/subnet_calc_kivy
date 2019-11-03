@@ -42,6 +42,7 @@
 
         TextInput:
             text: 'Subnet with Prefix'
+            size: 100, 44
             size_hint:(1, None)
             readonly: True 
             #height: root.height/12
@@ -50,13 +51,15 @@
         TextInput:
             id: text_input_subnet_with_prefix
             text: '192.168.1.0/24'
+            size: 100, 44
             size_hint:(1, None)
             #height: root.height/12
             #background_color: 1,2,0,1
 
         Button:
             text: 'calculate'
-            on_press: root.calculate()
+            on_press: root.change_subnet2()
+            size: 100, 44
             size_hint:(1, None)
             #height: root.height/12
 
@@ -82,6 +85,7 @@
         TextInput:
             text: 'Subnet without Prefix'
             size_hint:(1, None)
+            size: 100, 44
             readonly: True 
             #height: root.height/12
             #background_color: 1,2,0,1
@@ -89,14 +93,25 @@
         TextInput:
             id: text_input_subnet_no_prefix
             size_hint:(1, None)
+            size: 100, 44
             #height: root.height/12
             text: '192.168.1.0'
 
-        TextInput:
+        # TextInput:
+        #     id: text_input_subnet_mask
+        #     size: 100, 44
+        #     size_hint:(1, None)
+        #     #height: root.height/12
+        #     text: '255.255.255.0'
+
+        Spinner:
             id: text_input_subnet_mask
-            size_hint:(1, None)
-            #height: root.height/12
-            text: '255.255.255.0'
+            size_hint: (1, None)
+            size: 100, 44
+            #pos_hint: {'center': (.5, .5)}
+            text: 'Mask'
+            values: '128.0.0.0','192.0.0.0','224.0.0.0','240.0.0.0','248.0.0.0','252.0.0.0','254.0.0.0','255.0.0.0','255.128.0.0','255.192.0.0','255.224.0.0','255.240.0.0','255.248.0.0','255.252.0.0','255.254.0.0','255.255.0.0','255.255.128.0','255.255.192.0','255.255.224.0','255.255.240.0','255.255.248.0','255.255.252.0','255.255.254.0','255.255.255.0','255.255.255.128','255.255.255.192','255.255.255.224','255.255.255.240','255.255.255.248','255.255.255.252','255.255.255.254','255.255.255.255'
+            on_text: root.change_subnet()
 
     BoxLayout:
         orientation: 'vertical'
