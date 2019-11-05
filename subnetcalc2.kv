@@ -1,0 +1,45 @@
+#:import MDIconButton kivymd.uix.button.MDIconButton
+#:import MDFlatButton kivymd.uix.button.MDFlatButton
+#:import MDRaisedButton kivymd.uix.button.MDRaisedButton
+
+
+
+<Controller>:
+
+    btn1: MDRaisedButton1
+    textfield_ipaddress: textfield_ipaddress
+
+    BoxLayout:
+        spacing: dp(20)
+        orientation: 'vertical'
+        MDIconButton:
+            icon: 'network'
+            theme_text_color: 'Custom'
+            text_color: [0,0,1,1]
+        MDFlatButton:
+            text:'Hello there flat button'
+            on_release: 
+                root.mytext=self.text
+                root.btnPressed()
+        MDRaisedButton:
+            id: MDRaisedButton1
+            text:'Hello there raised button'
+            on_release: 
+                app.mytext=self.text
+                app.btnPressed()
+        MDTextField:
+            id: textfield_ipaddress
+            hint_text:'this is hint text'
+            helper_text:'enter ip address in X.X.X.X/XX'
+            helper_text_mode: 'persistent' #on_focus
+            #required: True
+            #max_text_length: 12
+            #line_color_normal:
+        MDTextFieldRound:
+            hint_text:'this is hint text'
+            helper_text:'enter ip address in X.X.X.X/XX'
+            helper_text_mode: 'persistent' #on_focus
+            icon: 'account-badge'
+            #required: True
+            #max_text_length: 12
+            #line_color_normal:
